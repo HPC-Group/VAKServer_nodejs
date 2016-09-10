@@ -1,0 +1,67 @@
+<h3>VisSeq Metric for: {{ details.activeSession.alias }}</h3>
+
+<div class="row m-b-2">
+    <vak-line-graph vak-data="details.states">
+        <div class="svg__holder"></div>
+    </vak-line-graph>
+</div>
+
+<div class="row">
+    <h3>Details</h3>
+    <ul class="list-unstyled session-details list-group">
+        <li class="list-group-item session-details__id">
+            <span class="label">Id</span>
+            <span class="value">{{ details.activeSession.entityId }}</span>
+        </li>
+        <li class="list-group-item session-details__name">
+            <span class="label">Alias</span>
+            <span class="value">{{ details.activeSession.alias }}</span>
+        </li>
+        <li class="list-group-item session-details__start">
+            <span class="label">Start</span>
+            <span class="value">{{ details.activeSession.startTimestamp }}</span>
+        </li>
+        <li class="list-group-item session-details__end">
+            <span class="label">End</span>
+            <span class="value">{{ details.activeSession.endTimestamp }}</span>
+        </li>
+        <li class="list-group-item session-details__states">
+            <span class="label">States sum</span>
+            <span class="value">{{ details.activeSession.statesCount }}</span>
+        </li>
+
+        <li class="list-group-item session-details__prov">
+            <span class="VAK__toggle" ng-click="details.showProv =!details.showProv">
+                Provenance <i class="fa" ng-class="{'fa-caret-right':!details.showProv, 'fa-caret-down': details.showProv}"></i>
+            </span>
+            <div class="session-details__prov-toggle" ng-show="details.showProv">
+                <pre pretty-json="details.provJSON"></pre>
+            </div>
+        </li>
+
+        <!--<li class="list-group-item session-details__prov">-->
+
+            <!--<div class="clearfix">-->
+                <!--<span class="VAK__toggle">-->
+                    <!--Prov Bundle-->
+                <!--</span>-->
+                <!--<button class="btn btn-primary btn-sm"-->
+                        <!--ng-hide="!details.provBundleJSONString"-->
+                        <!--clipboard-->
+                        <!--text="details.provBundleJSONString">-->
+                    <!--<i class="fa fa-clipboard"></i> Copy-->
+                <!--</button>-->
+
+                <!--<button class="btn btn-sm"-->
+                        <!--ng-hide="details.provBundleJSONString"-->
+                        <!--ng-click="details.buildProvBundle(details.activeSession.entityId)">-->
+                    <!--<i class="fa fa-download"></i> Generate Bundle-->
+                <!--</button>-->
+
+                <!--<div class="alert alert-danger" role="alert" ng-show="details.noBundle">-->
+                    <!--No bundle was generated. Probably the request was missing a session id.-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</li>-->
+    </ul>
+</div>

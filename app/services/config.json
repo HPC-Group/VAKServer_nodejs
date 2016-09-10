@@ -1,0 +1,12 @@
+{
+  "couchbase": {
+    "endpoint": "vak.telemetry.dev",
+    "n1ql":"vak.telemetry.dev:8093",
+    "bucket": "sync_gateway",
+    "detailed_errors": 1,
+    "showQuery": 1
+  },
+  "models": {
+    "appKeyName": "provenance.agent.delegatingAgent.client_name"
+  }
+}

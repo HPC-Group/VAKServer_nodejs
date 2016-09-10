@@ -1,0 +1,28 @@
+<h3>Sessions in {{ ::sessions.appName }}</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Session Alias</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>State sum</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr title="Open session '{{ ::session.alias }}'"
+            ng-repeat="(key, session) in sessions.sessions track by session.alias"
+            ui-sref="session-details({ session_id:session.entityId })">
+            <td>{{ ::session.alias }}</td>
+            <td>{{ ::session.startTimestamp }}</td>
+            <td>
+                <span ng-if="session.endTimestamp">{{ ::session.endTimestamp }}</span>
+                <span ng-if="!session.endTimestamp"> - </span>
+            </td>
+            <td>
+                <span ng-if="session.statesCount">{{ ::session.statesCount }}</span>
+                <span ng-if="!session.statesCount"> - </span>
+            </td>
+        </tr>
+    </tbody>
+</table>

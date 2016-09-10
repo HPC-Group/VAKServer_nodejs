@@ -1,0 +1,101 @@
+$fa-font-path: "../../bower_components/font-awesome/fonts"
+
+$font-size-h1: 1.5rem !default
+$font-size-h2: 1.25 rem !default
+$font-size-h3: 1.1rem !default
+$font-size-h4: 1rem !default
+$font-size-h5: .9rem !default
+$font-size-h6: .75rem !default
+
+@import '../../bower_components/bootstrap/scss/bootstrap'
+@import '../../bower_components/font-awesome/scss/font-awesome'
+
+body
+  padding: 50px
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
+
+a
+  color: #00B7FF
+  cursor: pointer
+
+[ui-sref],
+[ng-click]
+    cursor: pointer
+
+
+// GRAPHS
+
+.svg__holder
+  font-size: .75em
+  padding: 0 2em
+
+  background-color: $gray-lightest
+  border: 1px solid $gray-lighter
+
+// GRAPH ELEMS
+
+path
+  stroke: steelblue
+  stroke-width: 1
+  fill: none
+
+// scatterplot
+
+.dot
+  stroke: #000
+
+
+// TICKS + LEGENDS AND SUCH
+
+.tick line
+  opacity: 0.2;
+
+
+.axis path,
+.axis line
+  fill: none
+  stroke: grey
+  stroke-width: 1
+  shape-rendering: crispEdges
+
+.axis__label
+  font:
+    size: .75rem
+    weight: bold
+
+  text-anchor: middle
+
+// TOOLTIP
+
+.tooltip
+  font-size: .75rem
+
+  padding: .25em .4em
+  background-color: $gray
+  color: #FFF
+
+  ul
+    margin-bottom: 0
+    font-weight: 200
+
+.tooltip__label
+  font-style: italic
+  &::after
+    content: ':'
+
+// -- SESSION DETAILS
+
+.session-details
+  .label
+    color: $body-color
+    width: 75px
+    margin-right: 2rem
+    text-align: right
+
+    &::after
+      content: ':'
+
+  .session-details__prov
+    font-size: 75%
+    .VAK__toggle
+        font-weight: bold
