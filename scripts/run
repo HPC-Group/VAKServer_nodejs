@@ -1,0 +1,30 @@
+#!/bin/bash
+
+DESIRED_HTTP_CODE='200'
+SLEEP_TIME='5s'
+BUCKET_URL='http://vak_couchbase:8091/pools/default/buckets/sync_gateway/stats'
+HTTP_STATE=$(curl $BUCKET_URL -s -w %{http_code} -o /dev/null)
+
+echo "*** CHECK CB SERVER STATUS ***"
+
+wait_for_boot () {
+  # wait for server to boot then call the post start action
+  while [[ "$HTTP_STATE" -ne  "$DESIRED_HTTP_CODE" ]] ; do
+      let HTTP_STATE=$(curl $BUCKET_URL -s -w %{http_code} -o /dev/null)
+      echo "**** NODEJS> INFO: State is: $HTTP_STATE"
+
+      echo "**** NODEJS> SLEEP: I am tired and going to sleep for $SLEEP_TIME"
+      sleep $SLEEP_TIME
+
+  done
+
+  boot_server
+}
+
+boot_server () {
+  echo "*** BOOTING NODEJS APP"
+  passenger start --app-type node --startup-file /home/app/webapp/bin/www --environment staging
+}
+
+wait_for_boot
+
