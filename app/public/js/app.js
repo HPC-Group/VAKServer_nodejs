@@ -4,7 +4,7 @@
 
 var API_PREFIX = '/api';
 
-angular.module('VAK.apps', ['VAK.directives', 'ngPrettyJson', 'angular-clipboard'])
+angular.module('VAK.apps', ['VAK.directives', 'angular-clipboard'])
     .service('RepositoryService', ['$http', function ($http) {
         'use strict';
         // -
@@ -134,7 +134,7 @@ angular.module('VAK.apps', ['VAK.directives', 'ngPrettyJson', 'angular-clipboard
 
 // -----------------
 
-angular.module('VAKVisApp', ['ui.router', 'VAK.apps', 'oc.lazyLoad'])
+angular.module('visApp', ['ui.router', 'VAK.apps', 'oc.lazyLoad'])
     .config(['$ocLazyLoadProvider', function ($ocLazyLoadProvider) {
         'use strict';
 

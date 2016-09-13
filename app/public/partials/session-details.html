@@ -35,7 +35,7 @@
                 Provenance <i class="fa" ng-class="{'fa-caret-right':!details.showProv, 'fa-caret-down': details.showProv}"></i>
             </span>
             <div class="session-details__prov-toggle" ng-show="details.showProv">
-                <pre pretty-json="details.provJSON"></pre>
+                <pre>{{ details.provJSON }}</pre>
             </div>
         </li>
 
