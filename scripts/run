@@ -23,7 +23,7 @@ wait_for_boot () {
 
 boot_server () {
   echo "*** BOOTING NODEJS APP"
-  passenger start --app-type node --startup-file /home/app/webapp/bin/www --environment staging
+  passenger start --app-type node --startup-file /home/app/webapp/bin/www
 }
 
 wait_for_boot

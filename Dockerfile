@@ -1,4 +1,4 @@
-FROM visanalyticskit/vakserver_passenger-nodejs:0.9.19
+FROM visanalyticskit/vakserver_passenger-nodejs:0.9.19-a
 MAINTAINER visanalyticskit@gmail.com
 
 # Set correct environment variables.
